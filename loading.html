@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        background-image: url('./img/test.gif'); /* 替換為你的圖 */
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .loader {
+        font-size: 24px;
+        color: #333;
+        /* 你可以放你的動畫這裡 */
+      }
+    </style>
+</head>
+  
+  <div class="loader">載入中，請稍候...</div>
+
+  <!-- <script>
+    // 取得 URL 中的參數：?target=members.html
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get("target");
+
+    if (target) {
+      setTimeout(() => {
+        window.location.href = target;
+      }, 2000); // 延遲秒數
+    } else {
+      document.body.innerHTML = "<p>無目標頁面，請確認參數。</p>";
+    }
+  </script> -->
+</body>
+</html>
+
