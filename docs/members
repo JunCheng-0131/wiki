@@ -42,10 +42,10 @@
         all: unset;
         /* all: revert; */
       }
-      .backimg{
+      /* .backimg{
         width: 100%;
         padding: 0 5%;
-      }
+      } */
       li{
         color: aliceblue;
       }
