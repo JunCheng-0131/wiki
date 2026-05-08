@@ -27,7 +27,7 @@
       }
       body{
         background-color: rgb(0, 0, 0);
-        background-image: url("static/img/Sheba1.JPG");
+        /* background-image: url("static/img/Sheba1.JPG"); */
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
