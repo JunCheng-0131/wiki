@@ -72,10 +72,12 @@
   </div> -->
 </div>
 </div>
-<script>
+<!-- 動畫只出現一次 -->
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function() {
     const options = {
-        threshold: 0.1
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px" 
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -87,20 +89,37 @@
         });
     }, options);
 
-    // 找到所有 .wist 圖片
     const targets = document.querySelectorAll('.wist');
     
-    // 在這裡使用 forEach 的第二個參數 index
-    targets.forEach((target, index) => {
-        // --- 就是加在這裡！ ---
-        // 第一張圖 (index 0) 延遲 0s
-        // 第二張圖 (index 1) 延遲 0.2s
-        // 第三張圖 (index 2) 延遲 0.4s
-        target.style.transitionDelay = `${index * 0.2}s`;
-        
-        // 開始觀察
+    targets.forEach(target => {
         observer.observe(target);
     });
-});
+  });
+</script> -->
+<!-- 動畫重複出現 -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        threshold: 0.15,      // 圖片出現 15% 時觸發
+        rootMargin: "0px 0px -50px 0px" 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 滾進來：加上 class 跑動畫
+                entry.target.classList.add('visible');
+            } else {
+                // 滾出去：移除 class，讓它回到初始隱藏狀態
+                // 這樣下次滾回來時，動畫才會重新觸發
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.wist').forEach(img => {
+        observer.observe(img);
+    });
+  });
 </script>
 {% endblock %}
