@@ -12,6 +12,7 @@
 
     <!-- Custom CSS -->
     <link href="static/style.css" rel="stylesheet">
+    <link href="static/home.css" rel="stylesheet">
 
     <title>Home | WIST - iGEM 2025</title>
     <style>
@@ -163,10 +164,9 @@
     
 
 
-<img src="static/img/Wist-1.png" alt="" class="wist">
-<img src="static/img/Wist-2.png" alt="" class="wist">
-<img src="static/img/Wist-3.png" alt="" class="wist">
-
+<img src="static/img/Wist-1.png" alt="" class="wist bg-section story-image">
+<img src="static/img/Wist-2.png" alt="" class="wist bg-section story-image">
+<img src="static/img/Wist-3.png" alt="" class="wist bg-section story-image">
 <div class="background-image-section">
 <div class="row">
   <div class="col">
@@ -230,6 +230,37 @@
   </div> -->
 </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const options = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    // 找到所有 .wist 圖片
+    const targets = document.querySelectorAll('.wist');
+    
+    // 在這裡使用 forEach 的第二個參數 index
+    targets.forEach((target, index) => {
+        // --- 就是加在這裡！ ---
+        // 第一張圖 (index 0) 延遲 0s
+        // 第二張圖 (index 1) 延遲 0.2s
+        // 第三張圖 (index 2) 延遲 0.4s
+        target.style.transitionDelay = `${index * 0.2}s`;
+        
+        // 開始觀察
+        observer.observe(target);
+    });
+});
+</script>
 
   </div>
   <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->

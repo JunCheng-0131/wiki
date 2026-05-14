@@ -1,0 +1,13 @@
+/* 圖片初始狀態：隱藏且稍微向下偏移 */
+.wist {
+    opacity: 0;
+    transform: translateY(50px); /* 向上滑入的效果，可改為 translateX(-50px) 改成左邊滑入 */
+    transition: opacity 1.0s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform; /* 效能優化 */
+}
+
+/* 當圖片進入視窗時，觸發這個 class */
+.wist.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

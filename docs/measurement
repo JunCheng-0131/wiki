@@ -12,6 +12,7 @@
 
     <!-- Custom CSS -->
     <link href="static/style.css" rel="stylesheet">
+    <link href="static/home.css" rel="stylesheet">
 
     <title>Measurement | WIST - iGEM 2025</title>
     <style>
